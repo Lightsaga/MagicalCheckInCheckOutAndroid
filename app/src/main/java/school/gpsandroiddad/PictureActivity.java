@@ -33,7 +33,7 @@ public class PictureActivity extends Activity {
         iv = (ImageView) findViewById(R.id.ivReturnedPicture);
         ib = (ImageButton) findViewById(R.id.ibTakePicture);
         b = (Button) findViewById(R.id.bSetWallpaper);
-        int cambio=0;
+        
     }
 
     public void OnClick(View v)
