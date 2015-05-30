@@ -2,32 +2,39 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Jorge\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jar="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-9cd3eca3f8274f5023d6d0f8c1bc244b31f4883a.jar" />
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\pre-dexed\debug\classes-209b67f98a30e05679fa2795f8e835b5f61f8459.jar" />
     </item>
     <item
-        jar="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jar="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\libs\internal_impl-22.1.1.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\pre-dexed\debug\classes-d796d2e5f8acb06a6bf2e8215c55d1e4673d1c4d.jar" />
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-e6a45a2c3a3bf270a236067b805415d47b53c118.jar" />
     </item>
     <item
-        jar="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jar="C:\Users\Jorge\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-489de5a5ba7340e06e07eb6d32c8840f8c7e33cb.jar" />
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-8eacc721f185f037f75b74290f73d2675be30a1b.jar" />
     </item>
     <item
-        jar="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jar="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\pre-dexed\debug\classes-a785548ac16494677a86b6da8463d3788df9deac.jar" />
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\pre-dexed\debug\classes-e4f9c065b2d501c134754ecf119bdd22df52f642.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\pre-dexed\debug\classes-c74bd6a7f05c96e6a7e72f83be008b9ebdf6b149.jar" />
     </item>
 
 </items>
