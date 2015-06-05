@@ -3,7 +3,8 @@ package school.gpsandroiddad.models;
 /**
  * Created by Vizardespa on 05/06/2015.
  */
-public class TablaRegistrosCheckInOut {
+public class TablaDetalleCheckInOut {
+
 
     int IdRegistroCheckInOut;
     int IdUsuario;
@@ -16,8 +17,8 @@ public class TablaRegistrosCheckInOut {
     String Notas;
     String Imagen;
 
-    public TablaRegistrosCheckInOut(int idRegistroCheckInOut, int idUsuario, String nombreTrabajador, String codigoEmpleado,
-            String tipoCheck, String fecha, String latitud, String longitud, String notas, String imagen) {
+    public TablaDetalleCheckInOut(int idRegistroCheckInOut, int idUsuario, String nombreTrabajador, String codigoEmpleado,
+                                    String tipoCheck, String fecha, String latitud, String longitud, String notas, String imagen) {
         super();
         this.IdRegistroCheckInOut = idRegistroCheckInOut;
         this.IdUsuario= idUsuario;
@@ -31,7 +32,7 @@ public class TablaRegistrosCheckInOut {
         this.Imagen =imagen;
     }
 
-    public TablaRegistrosCheckInOut() {
+    public TablaDetalleCheckInOut() {
         super();
         this.IdRegistroCheckInOut = 0;
         this.IdUsuario= 0;
@@ -134,5 +135,6 @@ public class TablaRegistrosCheckInOut {
     {
         this.Imagen= imagen;
     }
+
 
 }
