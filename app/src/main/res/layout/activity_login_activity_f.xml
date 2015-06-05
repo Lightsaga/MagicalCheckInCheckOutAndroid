@@ -36,5 +36,6 @@
         android:text="Iniciar Sesion"
         android:id="@+id/btnLogIn"
         android:layout_below="@+id/editText2"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="OnClick" />
 </RelativeLayout>

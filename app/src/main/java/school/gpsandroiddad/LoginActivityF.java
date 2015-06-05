@@ -1,17 +1,25 @@
 package school.gpsandroiddad;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 
-public class LoginActivityF extends ActionBarActivity {
+public class LoginActivityF extends Activity {
+
+    Button btnLogIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_activity_f);
+
+        btnLogIn = (Button) findViewById(R.id.btnLogIn);
     }
 
 
@@ -35,5 +43,15 @@ public class LoginActivityF extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void OnClick(View v)
+    {
+     if (v.getId() == R.id.btnLogIn)
+     {
+         Toast hola = new Toast(this);
+         hola.setText("Magic");
+         hola.show();
+     }
     }
 }
