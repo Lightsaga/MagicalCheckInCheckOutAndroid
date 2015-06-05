@@ -1,24 +1,33 @@
 package school.gpsandroiddad;
 
 import android.app.Activity;
+import android.content.Context;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
+import school.gpsandroiddad.JSONWebAPI.JSONParser;
+import school.gpsandroiddad.JSONWebAPI.RestAPI;
+
 
 public class LoginActivityF extends Activity {
 
     Button btnLogIn;
-
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_activity_f);
 
+        context=this;
         btnLogIn = (Button) findViewById(R.id.btnLogIn);
     }
 
@@ -49,9 +58,66 @@ public class LoginActivityF extends Activity {
     {
      if (v.getId() == R.id.btnLogIn)
      {
-         Toast hola = new Toast(this);
+         /*Toast hola = new Toast(this);
          hola.setText("Magic");
-         hola.show();
+         hola.show();*/
+         new AsyncLogin().execute("MToledo","123");
      }
     }
+
+    protected class AsyncLogin extends AsyncTask<String, JSONObject, Boolean> {
+
+        String userName=null;
+        @Override
+        protected Boolean doInBackground(String... params) {
+
+            RestAPI api = new RestAPI();
+            boolean userAuth = false;
+            try {
+
+                // Call the User Authentication Method in API
+                JSONObject jsonObj = api.AutentificarUsuario(params[0],
+                        params[1]);
+
+                //Parse the JSON Object to boolean
+                JSONParser parser = new JSONParser();
+                userAuth = parser.parseAutentificarUsuario(jsonObj);
+                userName=params[0];
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                Log.d("AsyncLogin", e.getMessage());
+
+            }
+            return userAuth;
+        }
+
+        @Override
+        protected void onPreExecute() {
+
+            super.onPreExecute();
+
+            Toast.makeText(context, "Please Wait...",Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        protected void onPostExecute(Boolean result) {
+            // TODO Auto-generated method stub
+
+            //Check user validity
+            if (result) {
+                /*Intent i = new Intent(LoginActivity.this,
+                        UserDetailsActivity.class);
+                i.putExtra("username",userName);
+                startActivity(i);*/
+                Toast.makeText(context, "Tryndamere!!! ",Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                Toast.makeText(context, "Not valid username/password ",Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+    }
+
 }
