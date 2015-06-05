@@ -61,7 +61,7 @@ public class LoginActivityF extends Activity {
          /*Toast hola = new Toast(this);
          hola.setText("Magic");
          hola.show();*/
-         new AsyncLogin().execute("MToledo","123");
+         new AsyncLogin().execute("JDiaz","321");
      }
     }
 
