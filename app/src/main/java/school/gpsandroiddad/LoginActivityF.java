@@ -2,7 +2,6 @@ package school.gpsandroiddad;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import org.json.JSONObject;
@@ -63,29 +61,27 @@ public class LoginActivityF extends Activity {
          /*Toast hola = new Toast(this);
          hola.setText("Magic");
          hola.show();*/
-         EditText usuario = (EditText) findViewById(R.id.edtUsuario);
-         EditText contrasena = (EditText) findViewById(R.id.edtContra);
-         new AsyncLogin().execute(usuario.getText().toString(),contrasena.getText().toString());
+         new AsyncLogin().execute("JDiaz","321");
      }
     }
 
-    protected class AsyncLogin extends AsyncTask<String, JSONObject, Integer> {
+    protected class AsyncLogin extends AsyncTask<String, JSONObject, Boolean> {
 
         String userName=null;
         @Override
-        protected Integer doInBackground(String... params) {
+        protected Boolean doInBackground(String... params) {
 
             RestAPI api = new RestAPI();
-            int userAuth = -1;
+            boolean userAuth = false;
             try {
 
                 // Call the User Authentication Method in API
-                JSONObject jsonObj = api.ObtenerIdUsuario(params[0],
+                JSONObject jsonObj = api.AutentificarUsuario(params[0],
                         params[1]);
 
                 //Parse the JSON Object to boolean
                 JSONParser parser = new JSONParser();
-                userAuth = parser.parseObtenerIdUsuario(jsonObj);
+                userAuth = parser.parseAutentificarUsuario(jsonObj);
                 userName=params[0];
             } catch (Exception e) {
                 // TODO Auto-generated catch block
@@ -104,20 +100,20 @@ public class LoginActivityF extends Activity {
         }
 
         @Override
-        protected void onPostExecute(Integer result) {
+        protected void onPostExecute(Boolean result) {
             // TODO Auto-generated method stub
 
             //Check user validity
-            if (result!=-1) {
-                Intent i = new Intent(LoginActivityF.this,
-                        MainMenuActivity.class);
-                i.putExtra("IdUsuario",result);
-                startActivity(i);
-                //Toast.makeText(context, "Tryndamere!!! "+result,Toast.LENGTH_SHORT).show();
+            if (result) {
+                /*Intent i = new Intent(LoginActivity.this,
+                        UserDetailsActivity.class);
+                i.putExtra("username",userName);
+                startActivity(i);*/
+                Toast.makeText(context, "Tryndamere!!! ",Toast.LENGTH_SHORT).show();
             }
             else
             {
-                Toast.makeText(context, "Usuario o Contrasena no Validos",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Not valid username/password ",Toast.LENGTH_SHORT).show();
             }
 
         }
