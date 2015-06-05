@@ -8,11 +8,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MainMenuActivity extends Activity {
 
     Button btnCheckIn, btnCheckOut, btnRecord;
+
+    TextView userMessage;
+
+    String userID = null;
+    Intent callingIntent = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +28,16 @@ public class MainMenuActivity extends Activity {
         btnCheckIn = (Button) findViewById(R.id.btnCheckIn);
         btnCheckOut = (Button) findViewById(R.id.btnCheckOut);
         btnRecord = (Button) findViewById(R.id.btnRecord);
+        userMessage = (TextView) findViewById(R.id.txtViewUser);
 
+
+        callingIntent = getIntent();
+        userID = callingIntent.getStringExtra("UserID");
+
+        if(userID != null)
+        {
+            userMessage.setText("Bienvenido " + userID + "!");
+        }
     }
 
 
@@ -32,16 +47,21 @@ public class MainMenuActivity extends Activity {
 
             case R.id.btnCheckIn:
                 Intent intentCheckIn = new Intent(MainMenuActivity.this, PictureActivity.class);
+                intentCheckIn.putExtra("UserID", userID);
+                intentCheckIn.putExtra("isCheckInOrOut", "Check In");
                 startActivity(intentCheckIn);
                 break;
 
             case R.id.btnCheckOut:
                 Intent intentCheckOut = new Intent(MainMenuActivity.this, PictureActivity.class);
+                intentCheckOut.putExtra("UserID", userID);
+                intentCheckOut.putExtra("isCheckInOrOut", "Check out");
                 startActivity(intentCheckOut);
                 break;
 
             case R.id.btnRecord:
                 Intent intentRecord = new Intent(MainMenuActivity.this, RecordActivity.class);
+                intentRecord.putExtra("UserID", userID);
                 startActivity(intentRecord);
                 break;
 

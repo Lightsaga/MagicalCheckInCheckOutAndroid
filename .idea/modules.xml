@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GPSAndroidDad.iml" filepath="$PROJECT_DIR$/GPSAndroidDad.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MagicalCheckInCheckOutAndroid.iml" filepath="$PROJECT_DIR$/MagicalCheckInCheckOutAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

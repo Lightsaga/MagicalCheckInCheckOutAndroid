@@ -11,4 +11,7 @@
     <string name="title_activity_main_menu">MainMenuActivity</string>
     <string name="title_activity_record">RecordActivity</string>
     <string name="title_activity_record_details">RecordDetailsActivity</string>
+    <string name="welcomeMessage">Bienvenido Usuario al sistema de Check In Check out Mobil, ¿Que desea hacer?</string>
+    <string name="msgFoto">Tomar otra fotografia</string>
+    <string name="msgComentario">Información adicional</string>
 </resources>

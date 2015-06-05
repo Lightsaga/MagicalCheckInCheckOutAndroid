@@ -3,8 +3,8 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="220dp"
+        android:layout_height="180dp"
         android:id="@+id/ivReturnedPicture"
         android:layout_gravity="center_vertical"
         android:src="@mipmap/ic_launcher"
@@ -13,29 +13,65 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="55dp"
         android:text="Enviar"
         android:id="@+id/btnEnviar"
         android:layout_gravity="center_vertical"
         android:onClick="OnClick"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/ibTakePicture"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/camera"
         android:layout_gravity="center_vertical"
         android:onClick="OnClick"
-        android:layout_below="@+id/ivReturnedPicture"
-        android:layout_centerHorizontal="true" />
+        android:scaleType="fitXY"
+        android:layout_above="@+id/textView3"
+        android:layout_alignLeft="@+id/ivReturnedPicture"
+        android:layout_alignStart="@+id/ivReturnedPicture" />
 
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:id="@+id/editText3"
-        android:layout_above="@+id/bSetWallpaper"
+        android:layout_width="255dp"
+        android:layout_height="120dp"
+        android:id="@+id/editTxtNotas"
+        android:layout_above="@+id/btnEnviar"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/msgFoto"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/ivReturnedPicture"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_alignEnd="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/msgComentario"
+        android:id="@+id/textView3"
+        android:layout_above="@+id/editTxtNotas"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Tipo:      Check INOUT"
+        android:id="@+id/txtViewCheckInOut"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_below="@+id/editTxtNotas"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

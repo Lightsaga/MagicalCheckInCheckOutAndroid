@@ -7,34 +7,34 @@
     tools:context="school.gpsandroiddad.MainMenuActivity">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
         android:text="Check In"
         android:id="@+id/btnCheckIn"
-        android:layout_marginTop="69dp"
-        android:layout_below="@+id/btnLogout"
-        android:layout_centerHorizontal="true"
-        android:onClick="OnClick" />
+        android:onClick="OnClick"
+        android:layout_above="@+id/btnCheckOut"
+        android:layout_alignLeft="@+id/btnCheckOut"
+        android:layout_alignStart="@+id/btnCheckOut" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
         android:text="Check out"
         android:id="@+id/btnCheckOut"
-        android:layout_below="@+id/btnCheckIn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp"
-        android:onClick="OnClick" />
+        android:onClick="OnClick"
+        android:layout_marginBottom="47dp"
+        android:layout_above="@+id/btnRecord"
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Historial"
         android:id="@+id/btnRecord"
-        android:layout_below="@+id/btnCheckOut"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="56dp"
-        android:onClick="OnClick" />
+        android:onClick="OnClick"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -44,5 +44,27 @@
         android:id="@+id/btnLogout"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/welcomeMessage"
+        android:id="@+id/txtViewWelcome"
+        android:layout_below="@+id/btnLogout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold|italic"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Bienvenido Usuario!"
+        android:id="@+id/txtViewUser"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

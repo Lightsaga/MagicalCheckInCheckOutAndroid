@@ -10,8 +10,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
@@ -19,6 +21,7 @@ import java.io.ByteArrayOutputStream;
 
 public class PictureActivity extends Activity {
 
+    TextView txtViewCheckInOut;
     ImageButton ib;
     Button btnEnviar;
     ImageView iv;
@@ -28,17 +31,46 @@ public class PictureActivity extends Activity {
 
     GPSTrack gps;
 
+    String userID = null; // dato a enviar
+    String isCheckInOrOut; // dato a enviar
+    String notasEmpleado; // dato a enviar
+
+    Intent callingIntent = null;
+
+    Bitmap btmapPhoto;
+    byte[] bytesPhoto;  // dato a enviar
+
+    String latitude; // dato a enviar
+    String longitude; // dato a enviar
+
+    EditText editTxtNotas;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picture);
         initialize();
+
+        iCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        iCamera.putExtra("android.intent.extras.CAMERA_FACING", 1);
+        startActivityForResult(iCamera, cameraData);
+
+
+        callingIntent = getIntent();
+        userID = callingIntent.getStringExtra("UserID");
+
+        isCheckInOrOut = callingIntent.getStringExtra("isCheckInOrOut");
+        txtViewCheckInOut.setText("Tipo:      " + isCheckInOrOut);
+
     }
 
     private void initialize(){
         iv = (ImageView) findViewById(R.id.ivReturnedPicture);
         ib = (ImageButton) findViewById(R.id.ibTakePicture);
         btnEnviar = (Button) findViewById(R.id.btnEnviar);
+        txtViewCheckInOut = (TextView) findViewById(R.id.txtViewCheckInOut);
+        editTxtNotas = (EditText) findViewById(R.id.editTxtNotas);
 
     }
 
@@ -50,8 +82,10 @@ public class PictureActivity extends Activity {
 
                 if(gps.canGetLocation())
                 {
-                    double latitude = gps.getLatitude();
-                    double longitude = gps.getLongitude();
+                    latitude = String.valueOf(gps.getLatitude());
+                    longitude = String.valueOf(gps.getLongitude());
+
+                    notasEmpleado = editTxtNotas.getText().toString();
 
                     Toast.makeText(getApplicationContext(),"Tu localización es -\nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
 
@@ -64,6 +98,7 @@ public class PictureActivity extends Activity {
             break;
             case  R.id.ibTakePicture:
                 iCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                iCamera.putExtra("android.intent.extras.CAMERA_FACING", 1);
                 startActivityForResult(iCamera, cameraData);
             break;
         }
@@ -81,9 +116,9 @@ public class PictureActivity extends Activity {
 
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             bmpFoto.compress(Bitmap.CompressFormat.PNG, 100, stream);
-            byte[] bytesPhoto = stream.toByteArray();
+            bytesPhoto = stream.toByteArray();
 
-            Bitmap btmapPhoto = BitmapFactory.decodeByteArray(bytesPhoto, 0, bytesPhoto.length);
+            btmapPhoto = BitmapFactory.decodeByteArray(bytesPhoto, 0, bytesPhoto.length);
 
             iv.setImageBitmap(btmapPhoto);
         }
