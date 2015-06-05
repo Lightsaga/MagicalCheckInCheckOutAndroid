@@ -57,4 +57,15 @@ public class JSONParser {
         return userAtuh;
     }
 
+    public int parseObtenerIdUsuario(JSONObject object)
+    {     int userAtuh=-1;
+        try {
+            userAtuh= object.getInt("Value");
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            Log.d("JSONParser-ObtIdUsu", e.getMessage());
+        }
+
+        return userAtuh;
+    }
 }

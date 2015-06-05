@@ -17,7 +17,7 @@
     <EditText
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:id="@+id/editText"
+        android:id="@+id/edtUsuario"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true" />
 
@@ -26,8 +26,8 @@
         android:layout_height="50dp"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/editText"
+        android:id="@+id/edtContra"
+        android:layout_below="@+id/edtUsuario"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:text="Iniciar Sesion"
         android:id="@+id/btnLogIn"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/edtContra"
         android:layout_centerHorizontal="true"
         android:onClick="OnClick" />
 </RelativeLayout>
