@@ -158,7 +158,7 @@ public class RestAPI {
         return result;
     }
 
-    public JSONObject AgregarRegistroCheckInOut(int idUsuario,String fecha,String tipoCheck,String latitud,String longitud,String notas) throws Exception {
+    public JSONObject AgregarRegistroCheckInOut(int idUsuario,String fecha,String tipoCheck,String latitud,String longitud,String notas,String imagen) throws Exception {
         JSONObject result = null;
         JSONObject o = new JSONObject();
         JSONObject p = new JSONObject();
@@ -170,6 +170,7 @@ public class RestAPI {
         p.put("latitud",mapObject(latitud));
         p.put("longitud",mapObject(longitud));
         p.put("notas",mapObject(notas));
+        p.put("imagen",mapObject(imagen));
         o.put("parameters", p);
         String s = o.toString();
         String r = load(s);
@@ -204,6 +205,7 @@ public class RestAPI {
         result = new JSONObject(r);
         return result;
     }
+
 
 }
 
