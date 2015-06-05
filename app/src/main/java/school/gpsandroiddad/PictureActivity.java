@@ -3,6 +3,7 @@ package school.gpsandroiddad;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.provider.MediaStore;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
 
 
 public class PictureActivity extends Activity {
@@ -74,7 +77,15 @@ public class PictureActivity extends Activity {
         {
             Bundle extras = data.getExtras();
             bmpFoto = (Bitmap) extras.get("data");
-            iv.setImageBitmap(bmpFoto);
+
+
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bmpFoto.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] bytesPhoto = stream.toByteArray();
+
+            Bitmap btmapPhoto = BitmapFactory.decodeByteArray(bytesPhoto, 0, bytesPhoto.length);
+
+            iv.setImageBitmap(btmapPhoto);
         }
     }
 
