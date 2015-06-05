@@ -11,16 +11,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 public class PictureActivity extends Activity {
 
     ImageButton ib;
-    Button b;
+    Button btnEnviar;
     ImageView iv;
     Intent iCamera;
     final static int cameraData = 0;
     Bitmap bmpFoto;
+
+    GPSTrack gps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +35,28 @@ public class PictureActivity extends Activity {
     private void initialize(){
         iv = (ImageView) findViewById(R.id.ivReturnedPicture);
         ib = (ImageButton) findViewById(R.id.ibTakePicture);
-        b = (Button) findViewById(R.id.bSetWallpaper);
+        btnEnviar = (Button) findViewById(R.id.btnEnviar);
 
     }
 
     public void OnClick(View v)
     {
         switch(v.getId()){
-            case R.id.bSetWallpaper:
+            case R.id.btnEnviar:
+            gps = new GPSTrack(PictureActivity.this);
+
+                if(gps.canGetLocation())
+                {
+                    double latitude = gps.getLatitude();
+                    double longitude = gps.getLongitude();
+
+                    Toast.makeText(getApplicationContext(),"Tu localización es -\nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+
+                }
+
+                else {
+                    gps.showSettingsAlert();
+                }
 
             break;
             case  R.id.ibTakePicture:
