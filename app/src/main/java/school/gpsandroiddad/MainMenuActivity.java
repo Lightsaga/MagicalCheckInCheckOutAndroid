@@ -1,19 +1,55 @@
 package school.gpsandroiddad;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
-public class MainMenuActivity extends ActionBarActivity {
+public class MainMenuActivity extends Activity {
+
+    Button btnCheckIn, btnCheckOut, btnRecord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+        btnCheckIn = (Button) findViewById(R.id.btnCheckIn);
+        btnCheckOut = (Button) findViewById(R.id.btnCheckOut);
+        btnRecord = (Button) findViewById(R.id.btnRecord);
+
     }
 
+
+    public void OnClick(View v)
+    {
+        switch(v.getId()){
+
+            case R.id.btnCheckIn:
+                Intent intentCheckIn = new Intent(MainMenuActivity.this, PictureActivity.class);
+                startActivity(intentCheckIn);
+                break;
+
+            case R.id.btnCheckOut:
+                Intent intentCheckOut = new Intent(MainMenuActivity.this, PictureActivity.class);
+                startActivity(intentCheckOut);
+                break;
+
+            case R.id.btnRecord:
+                Intent intentRecord = new Intent(MainMenuActivity.this, RecordActivity.class);
+                startActivity(intentRecord);
+                break;
+
+            default:
+                break;
+
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

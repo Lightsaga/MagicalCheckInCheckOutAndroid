@@ -13,7 +13,8 @@
         android:id="@+id/btnCheckIn"
         android:layout_marginTop="69dp"
         android:layout_below="@+id/btnLogout"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="OnClick" />
 
     <Button
         android:layout_width="wrap_content"
@@ -22,7 +23,8 @@
         android:id="@+id/btnCheckOut"
         android:layout_below="@+id/btnCheckIn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp" />
+        android:layout_marginTop="39dp"
+        android:onClick="OnClick" />
 
     <Button
         android:layout_width="wrap_content"
@@ -31,7 +33,8 @@
         android:id="@+id/btnRecord"
         android:layout_below="@+id/btnCheckOut"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="56dp" />
+        android:layout_marginTop="56dp"
+        android:onClick="OnClick" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
