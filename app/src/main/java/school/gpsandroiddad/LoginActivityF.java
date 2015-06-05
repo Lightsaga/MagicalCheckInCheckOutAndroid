@@ -1,7 +1,7 @@
 package school.gpsandroiddad;
-
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import org.json.JSONObject;
@@ -56,32 +57,34 @@ public class LoginActivityF extends Activity {
 
     public void OnClick(View v)
     {
-     if (v.getId() == R.id.btnLogIn)
-     {
+        if (v.getId() == R.id.btnLogIn)
+        {
          /*Toast hola = new Toast(this);
          hola.setText("Magic");
          hola.show();*/
-         new AsyncLogin().execute("JDiaz","321");
-     }
+            EditText usuario = (EditText) findViewById(R.id.edtUsuario);
+            EditText contrasena = (EditText) findViewById(R.id.edtContra);
+            new AsyncLogin().execute(usuario.getText().toString(),contrasena.getText().toString());
+        }
     }
 
-    protected class AsyncLogin extends AsyncTask<String, JSONObject, Boolean> {
+    protected class AsyncLogin extends AsyncTask<String, JSONObject, Integer> {
 
         String userName=null;
         @Override
-        protected Boolean doInBackground(String... params) {
+        protected Integer doInBackground(String... params) {
 
             RestAPI api = new RestAPI();
-            boolean userAuth = false;
+            int userAuth = -1;
             try {
 
                 // Call the User Authentication Method in API
-                JSONObject jsonObj = api.AutentificarUsuario(params[0],
+                JSONObject jsonObj = api.ObtenerIdUsuario(params[0],
                         params[1]);
 
                 //Parse the JSON Object to boolean
                 JSONParser parser = new JSONParser();
-                userAuth = parser.parseAutentificarUsuario(jsonObj);
+                userAuth = parser.parseObtenerIdUsuario(jsonObj);
                 userName=params[0];
             } catch (Exception e) {
                 // TODO Auto-generated catch block
@@ -100,20 +103,20 @@ public class LoginActivityF extends Activity {
         }
 
         @Override
-        protected void onPostExecute(Boolean result) {
+        protected void onPostExecute(Integer result) {
             // TODO Auto-generated method stub
 
             //Check user validity
-            if (result) {
-                /*Intent i = new Intent(LoginActivity.this,
-                        UserDetailsActivity.class);
-                i.putExtra("username",userName);
-                startActivity(i);*/
-                Toast.makeText(context, "Tryndamere!!! ",Toast.LENGTH_SHORT).show();
+            if (result!=-1) {
+                Intent i = new Intent(LoginActivityF.this,
+                        MainMenuActivity.class);
+                i.putExtra("IdUsuario",result);
+                startActivity(i);
+                //Toast.makeText(context, "Tryndamere!!! "+result,Toast.LENGTH_SHORT).show();
             }
             else
             {
-                Toast.makeText(context, "Not valid username/password ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Usuario o Contrasena no Validos",Toast.LENGTH_SHORT).show();
             }
 
         }
