@@ -48,14 +48,14 @@ public class MainMenuActivity extends Activity {
             case R.id.btnCheckIn:
                 Intent intentCheckIn = new Intent(MainMenuActivity.this, PictureActivity.class);
                 intentCheckIn.putExtra("UserID", userID);
-                intentCheckIn.putExtra("isCheckInOrOut", "Check In");
+                intentCheckIn.putExtra("isCheckInOrOut", "IN");
                 startActivity(intentCheckIn);
                 break;
 
             case R.id.btnCheckOut:
                 Intent intentCheckOut = new Intent(MainMenuActivity.this, PictureActivity.class);
                 intentCheckOut.putExtra("UserID", userID);
-                intentCheckOut.putExtra("isCheckInOrOut", "Check out");
+                intentCheckOut.putExtra("isCheckInOrOut", "OUT");
                 startActivity(intentCheckOut);
                 break;
 

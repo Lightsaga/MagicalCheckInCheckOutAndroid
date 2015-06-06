@@ -1,6 +1,7 @@
 package school.gpsandroiddad;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,6 +18,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import org.json.JSONObject;
+
+import school.gpsandroiddad.JSONWebAPI.JSONParser;
+import school.gpsandroiddad.JSONWebAPI.RestAPI;
 
 
 public class PictureActivity extends Activity {
@@ -30,6 +38,7 @@ public class PictureActivity extends Activity {
     Bitmap bmpFoto;
 
     GPSTrack gps;
+    Context context;
 
     String userID = null; // dato a enviar
     String isCheckInOrOut; // dato a enviar
@@ -45,12 +54,19 @@ public class PictureActivity extends Activity {
 
     EditText editTxtNotas;
 
+    RestAPI api = new RestAPI();
+
+    String decodedPhotoString;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picture);
         initialize();
+
+        context = this;
 
         iCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         iCamera.putExtra("android.intent.extras.CAMERA_FACING", 1);
@@ -61,7 +77,7 @@ public class PictureActivity extends Activity {
         userID = callingIntent.getStringExtra("UserID");
 
         isCheckInOrOut = callingIntent.getStringExtra("isCheckInOrOut");
-        txtViewCheckInOut.setText("Tipo:      " + isCheckInOrOut);
+        txtViewCheckInOut.setText("Tipo:      CHECK " + isCheckInOrOut);
 
     }
 
@@ -89,7 +105,19 @@ public class PictureActivity extends Activity {
 
                     Toast.makeText(getApplicationContext(),"Tu localización es -\nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
 
-                }
+                    String date = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+
+                    try {
+
+                       // JSONObject jsonObjectRegistro = api.AgregarRegistroCheckInOut(Integer.parseInt(userID), date, isCheckInOrOut, latitude, longitude, notasEmpleado, decodedPhotoString);
+                       // Toast.makeText(context, "Tryndamere!!! ",Toast.LENGTH_SHORT).show();
+                    }
+
+                    catch(Exception e)
+                    {
+
+                    }
+                    }
 
                 else {
                     gps.showSettingsAlert();
@@ -118,6 +146,14 @@ public class PictureActivity extends Activity {
             bmpFoto.compress(Bitmap.CompressFormat.PNG, 100, stream);
             bytesPhoto = stream.toByteArray();
 
+            try {
+                decodedPhotoString = new String(bytesPhoto, "UTF-8");
+            }
+            catch(Exception e)
+            {
+
+            }
+
             btmapPhoto = BitmapFactory.decodeByteArray(bytesPhoto, 0, bytesPhoto.length);
 
             iv.setImageBitmap(btmapPhoto);
@@ -145,4 +181,6 @@ public class PictureActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

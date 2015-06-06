@@ -110,7 +110,7 @@ public class LoginActivityF extends Activity {
             if (result!=-1) {
                 Intent i = new Intent(LoginActivityF.this,
                         MainMenuActivity.class);
-                i.putExtra("IdUsuario",result);
+                i.putExtra("UserID",result.toString());
                 startActivity(i);
                 //Toast.makeText(context, "Tryndamere!!! "+result,Toast.LENGTH_SHORT).show();
             }

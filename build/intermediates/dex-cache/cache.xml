@@ -2,39 +2,39 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Vizardespa\AndroidStudioProjects\MagicalCheckInCheckOutAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\libs\internal_impl-22.1.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
-        <dex dex="C:\Users\Vizardespa\AndroidStudioProjects\MagicalCheckInCheckOutAndroid\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-9eaf85a17cfa6d89a86cc4061fa820f4f8eaf9ab.jar" />
-    </item>
-    <item
-        jar="C:\Users\Vizardespa\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
-        <dex dex="C:\Users\Vizardespa\AndroidStudioProjects\MagicalCheckInCheckOutAndroid\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-88e16f371f2d21a441ed896dc10d38c56b35e1ad.jar" />
-    </item>
-    <item
-        jar="C:\Users\Vizardespa\AndroidStudioProjects\MagicalCheckInCheckOutAndroid\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
-        <dex dex="C:\Users\Vizardespa\AndroidStudioProjects\MagicalCheckInCheckOutAndroid\app\build\intermediates\pre-dexed\debug\classes-aff9c30178b6742c7062cdd84ccf36374163cb7b.jar" />
-    </item>
-    <item
-        jar="C:\Users\Vizardespa\AndroidStudioProjects\MagicalCheckInCheckOutAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
+        jar="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
-        <dex dex="C:\Users\Vizardespa\AndroidStudioProjects\MagicalCheckInCheckOutAndroid\app\build\intermediates\pre-dexed\debug\classes-d2f3d33a32cffbca723bfb8db1af173f80fa647c.jar" />
+        <dex dex="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\pre-dexed\debug\classes-209b67f98a30e05679fa2795f8e835b5f61f8459.jar" />
     </item>
     <item
-        jar="C:\Users\Vizardespa\AndroidStudioProjects\MagicalCheckInCheckOutAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\classes.jar"
+        jar="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\libs\internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-e6a45a2c3a3bf270a236067b805415d47b53c118.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\pre-dexed\debug\classes-e4f9c065b2d501c134754ecf119bdd22df52f642.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jorge\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-8eacc721f185f037f75b74290f73d2675be30a1b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
-        <dex dex="C:\Users\Vizardespa\AndroidStudioProjects\MagicalCheckInCheckOutAndroid\app\build\intermediates\pre-dexed\debug\classes-1027d39babc4cd040e4b94a85f747f0559457755.jar" />
+        <dex dex="C:\Users\Jorge\Documents\work\AndroidProjects\GPSAndroidDad\app\build\intermediates\pre-dexed\debug\classes-c74bd6a7f05c96e6a7e72f83be008b9ebdf6b149.jar" />
     </item>
 
 </items>

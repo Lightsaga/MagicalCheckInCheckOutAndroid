@@ -36,6 +36,10 @@
 
             ></activity>
 
+        <activity android:name=".MainMenuActivity"
+            android:label="MainMenuActivity">
+        </activity>
+
     </application>
 
 </manifest>
