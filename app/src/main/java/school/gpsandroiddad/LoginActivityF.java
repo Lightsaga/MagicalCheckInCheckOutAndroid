@@ -99,7 +99,7 @@ public class LoginActivityF extends Activity {
 
             super.onPreExecute();
 
-            Toast.makeText(context, "Please Wait...",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Espere por favor...",Toast.LENGTH_SHORT).show();
         }
 
         @Override

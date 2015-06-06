@@ -68,4 +68,6 @@ public class JSONParser {
 
         return userAtuh;
     }
+
+    
 }

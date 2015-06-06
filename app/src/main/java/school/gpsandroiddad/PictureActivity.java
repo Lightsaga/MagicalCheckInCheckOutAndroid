@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.provider.MediaStore;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -94,35 +96,36 @@ public class PictureActivity extends Activity {
     {
         switch(v.getId()){
             case R.id.btnEnviar:
-            gps = new GPSTrack(PictureActivity.this);
 
-                if(gps.canGetLocation())
-                {
+            if(btmapPhoto != null) {
+                gps = new GPSTrack(PictureActivity.this);
+
+                if (gps.canGetLocation()) {
                     latitude = String.valueOf(gps.getLatitude());
                     longitude = String.valueOf(gps.getLongitude());
 
                     notasEmpleado = editTxtNotas.getText().toString();
 
-                    Toast.makeText(getApplicationContext(),"Tu localización es -\nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Tu localización es -\nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
 
                     String date = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 
                     try {
 
-                       // JSONObject jsonObjectRegistro = api.AgregarRegistroCheckInOut(Integer.parseInt(userID), date, isCheckInOrOut, latitude, longitude, notasEmpleado, decodedPhotoString);
-                       // Toast.makeText(context, "Tryndamere!!! ",Toast.LENGTH_SHORT).show();
-                    }
-
-                    catch(Exception e)
-                    {
+                        // JSONObject jsonObjectRegistro = api.AgregarRegistroCheckInOut(Integer.parseInt(userID), date, isCheckInOrOut, latitude, longitude, notasEmpleado, decodedPhotoString);
+                        // Toast.makeText(context, "Tryndamere!!! ",Toast.LENGTH_SHORT).show();
+                        new AsyncEnviar().execute(userID, date, isCheckInOrOut, latitude, longitude, notasEmpleado, decodedPhotoString);
+                    } catch (Exception e) {
 
                     }
-                    }
-
-                else {
+                } else {
                     gps.showSettingsAlert();
                 }
-
+            }
+                else
+            {
+                Toast.makeText(getApplicationContext(),"No Existe fotografia, tome foto primero", Toast.LENGTH_LONG).show();
+            }
             break;
             case  R.id.ibTakePicture:
                 iCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -180,6 +183,48 @@ public class PictureActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    protected class AsyncEnviar extends AsyncTask<String, JSONObject, Integer> {
+
+        @Override
+        protected Integer doInBackground(String... params) {
+
+            RestAPI api = new RestAPI();
+            int userAuth = 1;
+            try {
+                api.AgregarRegistroCheckInOut(Integer.parseInt(params[0]),params[1],params[2],params[3],params[4],params[5],params[6]);
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                Log.d("AsyncLogin", e.getMessage());
+                userAuth = -1;
+            }
+            return userAuth;
+        }
+
+        @Override
+        protected void onPreExecute() {
+
+            super.onPreExecute();
+
+            Toast.makeText(context, "Espere por favor...",Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        protected void onPostExecute(Integer result) {
+            // TODO Auto-generated method stub
+
+            //Check user validity
+            if (result!=-1) {
+                Toast.makeText(context, "Listo..."+result,Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                Toast.makeText(context, "Error al guardar...",Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
     }
 
 

@@ -31,9 +31,9 @@
         android:layout_gravity="center_vertical"
         android:onClick="OnClick"
         android:scaleType="fitXY"
-        android:layout_above="@+id/textView3"
-        android:layout_alignLeft="@+id/ivReturnedPicture"
-        android:layout_alignStart="@+id/ivReturnedPicture" />
+        android:layout_below="@+id/ivReturnedPicture"
+        android:layout_alignRight="@+id/btnEnviar"
+        android:layout_alignEnd="@+id/btnEnviar" />
 
     <EditText
         android:layout_width="255dp"
@@ -48,7 +48,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/msgFoto"
         android:id="@+id/textView2"
-        android:layout_below="@+id/ivReturnedPicture"
+        android:layout_alignBottom="@+id/ibTakePicture"
         android:layout_alignRight="@+id/textView3"
         android:layout_alignEnd="@+id/textView3" />
 

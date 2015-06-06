@@ -14,4 +14,5 @@
     <string name="welcomeMessage">Bienvenido Usuario al sistema de Check In Check out Mobil, ¿Que desea hacer?</string>
     <string name="msgFoto">Tomar otra fotografia</string>
     <string name="msgComentario">Información adicional</string>
+    <string name="WelcomeMessage">Bienvenido al Sistema Check In Check Out Maestro!</string>
 </resources>
